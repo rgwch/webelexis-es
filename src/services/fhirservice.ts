@@ -1,7 +1,9 @@
-import {inject} from "aurelia-framework";
+import {autoinject} from "aurelia-framework";
 import {Validator} from './validator'
 import {FHIRobject} from '../models/fhirobj'
 import {FHIR_Resource} from "../models/fhir";
+import {Config} from "../config"
+
 import 'fhirclient'
 declare const FHIR;
 
@@ -13,20 +15,22 @@ export interface BundleResult {
   links?: Array<any>
 
 }
-
+@autoinject
 export class FhirService{
   private smart=null;
+
+  constructor(private cfg:Config){}
 
   public init(){
     FHIR.oauth2.authorize(
       {
         client: {
 
-          client_id: 'ch.webelexis.apps.sample.001',
+          client_id: this.cfg.get("client_id"),
           scope: 'fhir',
-          redirect_uri: "http://localhost:9000/#/auth"
+          redirect_uri: this.cfg.get("client_redirect")
         },
-        server: "http://localhost:8380/fhir"
+        server: this.cfg.get("server_url")
       }) 
   }
 
