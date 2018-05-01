@@ -11,7 +11,7 @@ export class Info{
         console.log("Info")
         const appdata:AppData=this.cfg.loadStore()
         return this.fs.metadata(appdata.server_url).then(meta=>{
-            this.server=JSON.stringify(meta); 
+            this.server=meta; 
         })
        }
 }

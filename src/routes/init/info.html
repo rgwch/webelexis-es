@@ -1,4 +1,10 @@
 <template>
     <h2>Server Information</h2>
-    <p>${server}</p>
+    <h3>${server.software.name} ${server.software.version}</h3>
+    <p>FHIR Version: ${server.fhirVersion}</p>
+    <ul>
+        <li repeat.for="res of server.rest[0].resource">
+            <p>${res.type}</p>
+        </li>
+    </ul>
 </template>

@@ -10,7 +10,7 @@
                 <li class="list-group-item" repeat.for="patient of patients" click.delegate="selectPatient($index)">
                     ${patient.fhir.name[0].given | fhirResource:'name[0].given':patient.fhir} ${patient.fhir.name[0].family | fhirResource: 'name[0].family':patient.fhir}
                     (${patient.gender}), ${patient.birthDate}
-
+                    <span class="badge badge-secondary badge-pill">tet</span>
                 </li>
             </ul>
         </div>
