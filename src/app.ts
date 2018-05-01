@@ -22,6 +22,14 @@ export class App {
         name:"auth",
         title: "Ready"
       },{
+        route:"patient",
+        moduleId: "routes/patients/search",
+        name: "patients",
+        title: "Patienten",
+        nav: true,
+        settings: {auth:true}
+      },
+      {
         route: "info",
         moduleId: "routes/init/info",
         name: "info",

@@ -126,7 +126,13 @@
             "main": "aurelia-http-client",
             "path": "../node_modules/aurelia-http-client/dist/amd",
             "resources": []
+          },{
+            "name": "pikaday",
+            "main": "pikaday",
+            "path": "../node_modules/pikaday",
+            "resources": ["css/pikaday.css"]
           }
+          
         ]
       }
     ],

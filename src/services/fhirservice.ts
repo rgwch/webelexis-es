@@ -23,6 +23,7 @@ export class FhirService{
   constructor(private cfg:Config, private http:HttpClient){}
 
   public metadata(server_uri):Promise<any>{
+    console.log("metadata for "+server_uri)
     return this.http.get(server_uri+"/metadata?_format=application/fhir+json").then(response=>{
       return JSON.parse(response.content)
     })
@@ -34,10 +35,19 @@ export class FhirService{
 
           client_id: this.cfg.get("client_id"),
           scope: 'fhir',
-          redirect_uri: window.location.href+this.cfg.get("client_redirect")
+          redirect_uri: this.getBaseURL()+this.cfg.get("client_redirect")
         },
         server: server_uri
       }) 
+  }
+
+  getBaseURL(){
+    let ret=window.location.href
+    let pos=ret.search(window.location.hash)
+    if(pos>-1){
+      ret=ret.substring(0,pos)
+    }
+    return ret;
   }
 
   public getSmartclient():Promise<any>{

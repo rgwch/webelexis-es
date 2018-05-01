@@ -1,6 +1,6 @@
 /*********************************
  * This file is part of Webelexis
- * Copyright (c) 2017 by G. Weirich
+ * Copyright (c) 2017-2018 by G. Weirich
  **********************************/
 
 import {computedFrom} from 'aurelia-framework';
