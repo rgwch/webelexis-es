@@ -35,7 +35,7 @@ export class Validator {
     }
     return <BundleResult>{
       "status": "ok",
-      values  : ans.entry.map(obj => factory.createObject(obj.resource)),
+      values  : ans.total==0 ? [] : ans.entry.map(obj => factory.createObject(obj.resource)),
       count   : ans.total,
       links   : ans.link
     }

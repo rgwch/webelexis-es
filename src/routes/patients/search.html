@@ -1,18 +1,21 @@
 <template>
     <require from="../../components/searchfield"></require>
     <require from="../../resources/fhir-resource-value-converter"></require>
+    <div class="row">
+        <div class="col">
+            <form role="form" submit.delegate="doSearch()">
+                <searchfield value.two-way="searchexpr"></searchfield>
+            </form>
+            <ul class="list-group">
+                <li class="list-group-item" repeat.for="patient of patients" click.delegate="selectPatient($index)">
+                    ${patient.fhir.name[0].given | fhirResource:'name[0].given':patient.fhir} ${patient.fhir.name[0].family | fhirResource: 'name[0].family':patient.fhir}
+                    (${patient.gender}), ${patient.birthDate}
 
-    <form role="form" submit.delegate="doSearch()">
-    <searchfield value.two-way="searchexpr"></searchfield>
-    </form>
-    <ul class="list-group">
-        <li class="list-group-item" repeat.for="patient of patients">
-                <a route-href="route: searchbox-details; params.bind: {id: patient.id}">
-                        ${patient.fhir.name[0].given | fhirResource:'name[0].given':patient.fhir}
-                        ${patient.fhir.name[0].family | fhirResource: 'name[0].family':patient.fhir}
-                        (${patient.gender}),
-                        ${patient.birthDate}
-                      </a>
-        </li>
-    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="col">
+            <p>${actPatient.fullName}</p>
+        </div>
+    </div>
 </template>

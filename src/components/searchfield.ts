@@ -16,5 +16,6 @@ export class Searchfield {
   @bindable public label = this.i18.tr("search.label")
   @bindable public isDisabled = false;
   @bindable public handler;
+  @bindable public placeholder;
 
 }

@@ -8,6 +8,7 @@ import { Patient, PatientFactory} from '../../models/patient'
 export class Search{
     searchexpr="";
     patients=[]
+    actPatient:Patient;
 
     constructor(private cfg:Config, private pf:PatientFactory){}
     doSearch(){
@@ -16,6 +17,10 @@ export class Search{
             let result=Validator.checkFHIRBundle(results.data as FhirBundle, this.pf)
             this.patients=result.values
         })
+    }
+
+    selectPatient(index:number){
+        this.actPatient=this.patients[index]
     }
 
 }

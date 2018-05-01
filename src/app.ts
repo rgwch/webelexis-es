@@ -4,7 +4,7 @@ import 'bootstrap'
 import { autoinject } from 'aurelia-framework';
 
 export class App {
-  private router:Router;
+  public router:Router;
 
   public configureRouter(config:RouterConfiguration, router: Router){
     this.router=router
@@ -15,7 +15,7 @@ export class App {
         name: "login",
         moduleId: 'routes/init/login',
         title: "Log in",
-        nav:true
+        nav: false
       },{
         route: "auth",
         moduleId: "routes/init/ready",
@@ -27,7 +27,7 @@ export class App {
         name: "patients",
         title: "Patienten",
         nav: true,
-        settings: {auth:true}
+        settings: {authRole:"doctor"}
       },
       {
         route: "info",
@@ -35,7 +35,7 @@ export class App {
         name: "info",
         title: "Info",
         nav: true,
-        settings: {auth: true}
+        settings: {authRole:"mpa"}
       }
     ])
   }

@@ -1,20 +1,9 @@
 <template>
-    <require from="bootstrap/css/bootstrap.css"></require>
-
+  <require from="bootstrap/css/bootstrap.css"></require>
+  <require from="./navbar"></require>
+  <navbar navrouter.bind="router" mist.bind="hi"></navbar>
+  
   <div role="main" class="container">
-    <div class="navbar navbar-expand-md navbar-light bg-light">
-      <a class="navbar-brand">Webelexis</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">c</button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li>test</li>
-        <template repeat.for="nav of router.navigation">
-            <li><a href.bind="nav.href">${nav.title}</a></li>
-        </template>
-          </ul>
-    </div>  
-    
-  </div>
     <router-view swap-order="after"></router-view>
   </div>
 </template>
