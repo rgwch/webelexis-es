@@ -2,6 +2,7 @@ import {autoinject} from "aurelia-framework";
 import {Validator} from './validator'
 import {FHIRobject} from '../models/fhirobj'
 import {FHIR_Resource} from "../models/fhir";
+import {HttpClient} from 'aurelia-http-client';
 import {Config} from "../config"
 
 import 'fhirclient'
@@ -19,26 +20,31 @@ export interface BundleResult {
 export class FhirService{
   private smart=null;
 
-  constructor(private cfg:Config){}
+  constructor(private cfg:Config, private http:HttpClient){}
 
-  public init(){
+  public metadata(server_uri):Promise<any>{
+    return this.http.get(server_uri+"/metadata?_format=application/fhir+json").then(response=>{
+      return JSON.parse(response.content)
+    })
+  }
+  public init(server_uri:string){
     FHIR.oauth2.authorize(
       {
         client: {
 
           client_id: this.cfg.get("client_id"),
           scope: 'fhir',
-          redirect_uri: this.cfg.get("client_redirect")
+          redirect_uri: window.location.href+this.cfg.get("client_redirect")
         },
-        server: this.cfg.get("server_url")
+        server: server_uri
       }) 
   }
 
-  public getSmartclient():Promise<boolean>{
+  public getSmartclient():Promise<any>{
     return new Promise((resolve,reject)=>{
       FHIR.oauth2.ready(smart=>{
         this.smart=smart;
-        resolve(true);
+        resolve(smart);
       });
     })
 

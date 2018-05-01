@@ -5,8 +5,13 @@ export class Config {
   }
 
   prefs = {
-      default_client_id: "ch.webelexis.apps.sample.001",
-      default_client_redirect: "http://localhost:9000/#/auth",
+      default_client_id: "ch.webelexis.aurelia.v3",
+      default_client_redirect: "#/auth",
       default_server_url: "http://localhost:8380/fhir"
+  }
+
+  public globals = {
+    server:null,
+    smart:null
   }
 }

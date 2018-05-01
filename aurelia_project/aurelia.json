@@ -107,6 +107,25 @@
             "main": "aurelia-dialog",
             "path": "../node_modules/aurelia-dialog/dist/amd",
             "resources": []
+          },
+          "jquery",
+          {
+            "name": "bootstrap",
+            "path": "../node_modules/bootstrap/dist",
+            "main": "js/bootstrap.bundle.min",
+            "deps": [
+              "jquery"
+            ],
+            "exports": "$",
+            "resources": [
+              "css/bootstrap.css"
+            ]
+          },
+          {
+            "name": "aurelia-http-client",
+            "main": "aurelia-http-client",
+            "path": "../node_modules/aurelia-http-client/dist/amd",
+            "resources": []
           }
         ]
       }
