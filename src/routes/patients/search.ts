@@ -7,6 +7,7 @@ import { Patient, PatientFactory} from '../../models/patient'
 @autoinject
 export class Search{
     searchexpr="";
+    searchterm="Name oder Vorname"
     patients=[]
     actPatient:Patient;
 

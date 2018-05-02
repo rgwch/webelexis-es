@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col">
             <form role="form" submit.delegate="doSearch()">
-                <searchfield value.two-way="searchexpr"></searchfield>
+                <searchfield value.two-way="searchexpr" placeholder.bind="searchterm"></searchfield>
             </form>
             <ul class="list-group">
                 <li class="list-group-item" repeat.for="patient of patients" click.delegate="selectPatient($index)">
