@@ -21,6 +21,12 @@ export class Session{
         return this;
     }
 
+    public hasRole(role:string):boolean{
+        let givenRoles=this.getRoles() || [];
+        let isOk=(givenRoles.findIndex((elem:string)=>elem===role) !=-1)
+        return isOk
+    }
+    
     public getRoles():Array<string>{
         return this.currentUser.roles;
     }

@@ -1,33 +1,33 @@
-import {Router, RouterConfiguration,Redirect, Next, NavigationInstruction} from 'aurelia-router'
-import {Session,User} from './services/session'
+import { Router, RouterConfiguration, Redirect, Next, NavigationInstruction } from 'aurelia-router'
+import { Session, User } from './services/session'
 import 'bootstrap'
 import { autoinject } from 'aurelia-framework';
 
 export class App {
-  public router:Router;
+  public router: Router;
 
-  public configureRouter(config:RouterConfiguration, router: Router){
-    this.router=router
+  public configureRouter(config: RouterConfiguration, router: Router) {
+    this.router = router
     config.addAuthorizeStep(AuthorizeStep)
     config.map([
       {
-        route: ["","login"],
+        route: ["", "login"],
         name: "login",
         moduleId: 'routes/init/login',
         title: "Log in",
         nav: false
-      },{
+      }, {
         route: "auth",
         moduleId: "routes/init/ready",
-        name:"auth",
+        name: "auth",
         title: "Ready"
-      },{
-        route:"patient",
+      }, {
+        route: "patient",
         moduleId: "routes/patients/search",
         name: "patients",
         title: "Patienten",
         nav: true,
-        settings: {authRole:"user"}
+        settings: { authRole: "user" }
       },
       {
         route: "info",
@@ -35,35 +35,33 @@ export class App {
         name: "info",
         title: "Info",
         nav: true,
-        settings: {authRole:"user"}
+        settings: { authRole: "user" }
       }
     ])
   }
 }
 
 @autoinject
-class AuthorizeStep{
- 
-  constructor(private session:Session){}
-  run(navigationInstruction: NavigationInstruction, next:Next): Promise<any>{
+class AuthorizeStep {
+
+  constructor(private session: Session) { }
+  run(navigationInstruction: NavigationInstruction, next: Next): Promise<any> {
     console.log(navigationInstruction.config.name)
-    if(navigationInstruction.config.name === 'login'){
+    if (navigationInstruction.config.name === 'login') {
       return next();
     }
-    let mustBeAuthorized = navigationInstruction.config.settings ? navigationInstruction.config.settings.auth : null
-    if(mustBeAuthorized){
-      if(this.session.getSmartClient()){
-        console.log("isAuthorized")
-        return next()
-      }else{
-        console.log("not authorized")
-        return  next.cancel(new Redirect("login"))
-     
+    let neededRole = navigationInstruction.config.settings ? navigationInstruction.config.settings.authRole : null
+    if (neededRole) {
+      if (this.session.hasRole(neededRole)) {
+        return next();
+      } else {
+        return next.cancel(new Redirect("login"))
+
       }
-    }else{
+    } else {
       console.log("no authentication needed")
-      return next() 
-      
+      return next()
+
     }
   }
 }
