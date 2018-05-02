@@ -9,7 +9,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item" repeat.for="nav of navrouter.navigation | routeFilter:cfg.currentRoles">
+                <li class="nav-item" repeat.for="nav of navrouter.navigation | routeFilter">
                     <a class="nav-link" href.bind="nav.href">${nav.title}</a>
                 </li>
             </ul>

@@ -2,7 +2,7 @@
     <require from="../../components/searchfield"></require>
     <require from="../../resources/fhir-resource-value-converter"></require>
     <div class="row">
-        <div class="col">
+        <div class="col tableau">
             <form role="form" submit.delegate="doSearch()">
                 <searchfield value.two-way="searchexpr" placeholder.bind="searchterm"></searchfield>
             </form>
@@ -14,8 +14,8 @@
                 </li>
             </ul>
         </div>
-        <div class="col">
-            <p>${actPatient.fullName}</p>
+        <div class="col tableau">
+            <p class="header">${actPatient.fullName}</p>
         </div>
     </div>
 </template>

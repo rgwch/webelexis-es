@@ -11,10 +11,10 @@ export class Login {
 
   async login() {
     console.log("login");
+    this.cfg.globals["loggedIn"]=true;
     let appdata:AppData=this.cfg.loadStore()
     this.checkServer(appdata).then(valid => {
       if (valid) {
-        //console.log(this.cfg.globals.server)
         this.fhir.init(appdata.server_url)
       } else {
         this.dialog.open({ viewModel: "dialogs/select_server", model: { url: appdata ? appdata.server_url || "" : ""} }).whenClosed(async response => {

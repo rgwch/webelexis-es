@@ -1,9 +1,9 @@
 <template>
     <h1>Server Information</h1>
     <hr />
-    <h3>${server.software.name} ${server.software.version}, <small>FHIR Version: ${server.fhirVersion}</small></h3>
+    <h2>${server.software.name} ${server.software.version}, <small>FHIR Version: ${server.fhirVersion}</small></h2>
     <hr />
-    <h4>Unterstützte Datentypen</h4>
+    <h3>Unterstützte Datentypen</h3>
     <ul class="list-group">
         <li class="list-group-item" repeat.for="res of server.rest[0].resource">
             <p>${res.type}</p>

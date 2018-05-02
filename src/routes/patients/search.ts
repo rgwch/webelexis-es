@@ -1,4 +1,4 @@
-import {Config} from '../../config'
+import {Session} from '../../services/session'
 import { autoinject } from 'aurelia-framework';
 import {Validator} from '../../services/validator'
 import { FhirBundle } from '../../models/fhir';
@@ -11,10 +11,12 @@ export class Search{
     patients=[]
     actPatient:Patient;
 
-    constructor(private cfg:Config, private pf:PatientFactory){}
+    constructor(private pf:PatientFactory, private session:Session){
+        
+    }
     doSearch(){
         console.log("looking for "+this.searchexpr)
-        this.cfg.globals.smart.api.search({type: "Patient", query: {name: this.searchexpr}}).then(results=>{
+        this.session.getSmartClient().api.search({type: "Patient", query: {name: this.searchexpr}}).then(results=>{
             let result=Validator.checkFHIRBundle(results.data as FhirBundle, this.pf)
             this.patients=result.values
         })

@@ -1,0 +1,33 @@
+$primary-color: #64b5f6;
+$accent-color: #2979ff;
+
+h1{
+    color: $accent-color;
+    font-size: 2.0rem;
+}
+h2{
+    color: $primary-color;
+    font-size: 1.5rem;
+}
+
+h3{
+    color: $primary-color;
+    font-size: 1.2rem;
+}
+
+.tableau{
+    padding: 5px;
+    margin: 5px;
+    border: solid 1px blue;
+    border-radius: 10px;
+    background-color:#e8e1d0;
+  
+    .header {
+      font-weight: bold;
+      font-size: larger;
+      overflow: hidden;
+      white-space: nowrap;
+      text-align: center;
+      border-bottom: solid 1px black;
+    }
+  }

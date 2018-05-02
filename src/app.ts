@@ -1,5 +1,5 @@
 import {Router, RouterConfiguration,Redirect, Next, NavigationInstruction} from 'aurelia-router'
-import {Config} from './config'
+import {Session,User} from './services/session'
 import 'bootstrap'
 import { autoinject } from 'aurelia-framework';
 
@@ -27,7 +27,7 @@ export class App {
         name: "patients",
         title: "Patienten",
         nav: true,
-        settings: {authRole:"doctor"}
+        settings: {authRole:"user"}
       },
       {
         route: "info",
@@ -35,7 +35,7 @@ export class App {
         name: "info",
         title: "Info",
         nav: true,
-        settings: {authRole:"mpa"}
+        settings: {authRole:"user"}
       }
     ])
   }
@@ -43,8 +43,8 @@ export class App {
 
 @autoinject
 class AuthorizeStep{
-  constructor(private cfg:Config){}
-
+ 
+  constructor(private session:Session){}
   run(navigationInstruction: NavigationInstruction, next:Next): Promise<any>{
     console.log(navigationInstruction.config.name)
     if(navigationInstruction.config.name === 'login'){
@@ -52,7 +52,7 @@ class AuthorizeStep{
     }
     let mustBeAuthorized = navigationInstruction.config.settings ? navigationInstruction.config.settings.auth : null
     if(mustBeAuthorized){
-      if(this.cfg.globals.smart){
+      if(this.session.getSmartClient()){
         console.log("isAuthorized")
         return next()
       }else{
