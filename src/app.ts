@@ -20,21 +20,22 @@ export class App {
         route: "auth",
         moduleId: "routes/init/ready",
         name: "auth",
-        title: "Ready"
+        title: "Ready",
+        nav: false
       }, {
         route: "patient",
-        moduleId: "routes/patients/search",
+        moduleId: "routes/patients/index",
         name: "patients",
         title: "Patienten",
         nav: true,
         settings: { authRole: "user" }
       },
       {
-        route:"test",
+        route: "test",
         moduleId: "routes/patients/index",
         name: "Test",
         title: "Test",
-        nav: true
+        nav: false
       },
       {
         route: "info",
