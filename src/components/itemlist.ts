@@ -10,6 +10,7 @@ export interface ItemListDef{
   }>,
   placeholder:string
   factory:FhirObjectFactory
+  label:(FHIRobject)=>string
   query: (filter:string)=>any
 }
 
@@ -29,6 +30,6 @@ export class ItemList{
   }
 
   doSort(values:Array<FHIRobject>):Array<FHIRobject>{
-
+    return values.sort(this.definition.fields[this.sortField].sorter)
   }
 }
