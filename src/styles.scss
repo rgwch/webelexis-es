@@ -22,6 +22,7 @@ h3{
   .clickable{
     font-style: italic;
     color: darken($color: $accent-color, $amount: 20);   
+    cursor: pointer;
   }
   .selected{
     font-weight: bold;

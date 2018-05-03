@@ -1,4 +1,4 @@
-import { bindable } from "aurelia-framework";
+import { bindable, autoinject } from "aurelia-framework";
 import { FhirObjectFactory, FHIRobject } from "../models/fhirobj";
 import { FhirService } from "../services/fhirservice";
 
@@ -14,22 +14,38 @@ export interface ItemListDef{
   query: (filter:string)=>any
 }
 
+@autoinject
 export class ItemList{
   @bindable definition:ItemListDef
   private searchexpr:string
   private values:Array<FHIRobject>
   private sortField;
+  private classes={}
   constructor(private fhir:FhirService){
     this.sortField=0
   }
 
+  attached(){
+       this.definition.fields.forEach(fld=>{this.classes[fld.field]="clickable"})
+  }
   exec(){
-    this.fhir.filter(this.definition.factory,this.definition.query(this.searchexpr)).then(values=>{
+    let s=this.searchexpr
+    if(!s || s.length==0 || s==="*" || s==="?"){
+      s="%"
+    }
+    this.fhir.filter(this.definition.factory,this.definition.query(s)).then(values=>{
       this.values=this.doSort(values)
     })
   }
 
+  sort(field:string){
+    this.definition.fields.forEach(fld=>{this.classes[fld.field]="clickable"})
+    this.classes[field]="clickable selected"
+    this.sortField=this.definition.fields.findIndex(f=>f.field===field)
+    this.values=this.doSort(this.values)
+  }
   doSort(values:Array<FHIRobject>):Array<FHIRobject>{
     return values.sort(this.definition.fields[this.sortField].sorter)
   }
+
 }

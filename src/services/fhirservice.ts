@@ -60,7 +60,10 @@ export class FhirService {
 
   }
 
-  public filter(factory: FhirObjectFactory, query): Promise<Array<FHIRobject>> {
+  public async filter(factory: FhirObjectFactory, query): Promise<Array<FHIRobject>> {
+    if(this.smart==null){
+      let sm=await this.getSmartclient()
+    }
     return this.smart.api.search({ type: factory.subtype, query: query }).then(results => {
       let result = Validator.checkFHIRBundle(results.data as FhirBundle, factory)
       return result.values;

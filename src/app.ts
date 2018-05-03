@@ -30,6 +30,13 @@ export class App {
         settings: { authRole: "user" }
       },
       {
+        route:"test",
+        moduleId: "routes/patients/index",
+        name: "Test",
+        title: "Test",
+        nav: true
+      },
+      {
         route: "info",
         moduleId: "routes/init/info",
         name: "info",

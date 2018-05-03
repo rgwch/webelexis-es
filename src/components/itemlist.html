@@ -1,10 +1,15 @@
 <template>
-  <form submit.delegate="exec()">
-    <input type="text" value.bind="searchexpr" placeholder.bind="placeholder">
+  <form role="form" submit.delegate="exec()">
+    <input type="text" value.bind="searchexpr" placeholder.bind="definition.placeholder">
   </form>
+  <div class="buttonbar">
+    Sortieren nach:
+    <span repeat.for="fld of definition.fields" class.bind="classes[fld.field]"
+      click.delegate="sort(fld.field)"> [${fld.name}] </span>
+  </div>
   <ul>
     <li repeat.for="value of values">
-      
+      ${definition.label(value)}
     </li>
   </ul>
 </template>
