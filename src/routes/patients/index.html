@@ -1,0 +1,11 @@
+<template>
+    <require from="../../components/itemlist"></require>
+    <div class="row">
+        <div class="col tableau">
+            <item-list definition.bind="plist"></item-list>
+        </div>
+        <div class="col tableau">
+            <p class="header">${selectedPatient.fullName}</p>
+        </div>
+    </div>
+</template>
