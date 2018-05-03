@@ -12,6 +12,7 @@ export class Search{
     searchterm="Name oder Vorname"
     patients:Array<Patient>
     actPatient:Patient;
+    
     sortField: sortfield ="lastName";
     sortMode: sortmode="desc"
     field1="clickable"
