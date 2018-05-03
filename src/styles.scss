@@ -15,6 +15,20 @@ h3{
     font-size: 1.2rem;
 }
 
+.buttonbar{
+  background-color: lighten($color:$primary-color, $amount: 20);
+  color: $accent-color;
+  font-size: 0.8rem;
+  .clickable{
+    font-style: italic;
+    color: darken($color: $accent-color, $amount: 20);   
+  }
+  .selected{
+    font-weight: bold;
+  }
+}
+
+
 .tableau{
     padding: 5px;
     margin: 5px;
