@@ -3,5 +3,11 @@
         "datetime_format": "DD.MM.YYYY, HH:mm",
         "date_format": "DD.MM.YYYY",
         "time_format": "HH:mm"
+      },
+      "patients":{
+          "firstname": "Vorname",
+          "lastname": "Name",
+          "birthdate": "Geburtsdatum",
+          "placeholder": "Name oder Vorname"
       }
 }

@@ -1,6 +1,10 @@
 import { bindable, autoinject } from "aurelia-framework";
 import { FhirObjectFactory, FHIRobject } from "../models/fhirobj";
 import { FhirService } from "../services/fhirservice";
+import { EventAggregator } from "aurelia-event-aggregator";
+
+export const SELECTED="ch.webelexis.itemlist.selected"
+
 
 export interface ItemListDef{
   fields:Array<{
@@ -16,12 +20,14 @@ export interface ItemListDef{
 
 @autoinject
 export class ItemList{
+
   @bindable definition:ItemListDef
   private searchexpr:string
   private values:Array<FHIRobject>
   private sortField;
   private classes={}
-  constructor(private fhir:FhirService){
+
+  constructor(private fhir:FhirService, private ea:EventAggregator){
     this.sortField=0
   }
 
@@ -48,4 +54,7 @@ export class ItemList{
     return values.sort(this.definition.fields[this.sortField].sorter)
   }
 
+  clicked(element){
+    this.ea.publish(SELECTED,element)
+  }
 }

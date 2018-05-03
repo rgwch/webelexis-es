@@ -1,14 +1,19 @@
 <template>
   <form role="form" submit.delegate="exec()">
-    <input type="text" value.bind="searchexpr" placeholder.bind="definition.placeholder">
+      <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">?</span>
+          </div>
+          <input type="text" class="form-control" placeholder.bind="definition.placeholder" value.bind="searchexpr"></input>
+        </div>
   </form>
   <div class="buttonbar">
     Sortieren nach:
     <span repeat.for="fld of definition.fields" class.bind="classes[fld.field]"
       click.delegate="sort(fld.field)"> [${fld.name}] </span>
   </div>
-  <ul>
-    <li repeat.for="value of values">
+  <ul class="list-group">
+    <li class="list-group-item" click.delegate="clicked(value)" repeat.for="value of values">
       ${definition.label(value)}
     </li>
   </ul>
