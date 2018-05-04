@@ -1,4 +1,11 @@
 {
+  "global":{
+      "ok":"continuer",
+      "cancel": "annuler"
+    },
+  "init":{
+      "enterserverurl": "Indiquez l'adresse du serveur, svp"
+    },
     "adapters": {
         "datetime_format": "DD.MM.YYYY, HH:mm",
         "date_format": "DD.MM.YYYY",
