@@ -26,7 +26,7 @@ npm install
 
 * Grab your mobile phone and get 'Google Authenticator' from the App Store/Play Store.
 
-* Launch your favourite browser and navigate to the [Elexis-Server-Wiki](https://github.com/elexis/elexis-server/wiki/SMART-on-FHIR). Scroll down to the Admin-QR-Code for the demo database and youse this as a seed for the Google Authenticator App.
+* Launch your favourite browser and navigate to the [Elexis-Server-Wiki](https://github.com/elexis/elexis-server/wiki/SMART-on-FHIR). Scroll down to the Admin-QR-Code for the demo database and use this as a seed for the Google Authenticator App.
 
 
 * Navigate to <http://localhost:8380/openid> and log in as **Administrator** with the Password **Admin** and a 2FA-token generated from your mobile app.

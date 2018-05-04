@@ -1,5 +1,5 @@
 {
-  "name": "webelexis-v3",
+  "name": "webelexis-es",
   "type": "project:application",
   "bundler": {
     "id": "cli",
