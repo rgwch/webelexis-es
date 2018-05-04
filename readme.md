@@ -44,7 +44,9 @@ au run --watch
 
 navigate to <http://localhost:9000>
 
-click "login" and enter credentials. If you hit enter in the empty search field, you should see a list of all patients in the demo database.
+On first launch, you'll be asked for the URL of the Elexis-Server. Enter *http://localhost:8380/fhir*.
+
+Then, click "login" and enter credentials. If you hit enter in the empty search field, you should see a list of all patients in the demo database.
 
 
 ## Quick guide through the code:
