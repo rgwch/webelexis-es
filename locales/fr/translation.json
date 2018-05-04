@@ -5,9 +5,9 @@
         "time_format": "HH:mm"
       },
       "patients":{
-          "firstname": "first name",
-          "lastname": "last name",
-          "birthdate": "date of birth",
-          "placeholder": "last name or first name"
+          "firstname": "prénom",
+          "lastname": "nom",
+          "birthdate": "date de naissance",
+          "placeholder": "nom ou prénom"
       }
 }

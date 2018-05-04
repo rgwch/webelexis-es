@@ -44,6 +44,5 @@ export class Config {
   public globals = {
     server:null,
     smart:null,
-    currentRoles:["patient","mpa","doctor"]
   }
 }
