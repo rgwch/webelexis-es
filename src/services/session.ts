@@ -1,4 +1,17 @@
+/************************************************************
+ * This file is part of Webelexis(tm)
+ * Copyright (c) 2018 by G. Weirich
+ * 
+ * Webelexis is licensed under the terms of the included
+ * LICENSE file.
+ *************************************************************/
 
+/**
+ * A session holds informations on the currently logged in user and their roles.
+ * The Session object does not constitute any privileges by itself (this is in the
+ * server's responsability), but it can help the application to restrict menus and options
+ * to a subset matching the user's roles.
+ */
 export class Session{
     private currentUser: User;
     private loginTime:Date;

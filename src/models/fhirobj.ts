@@ -1,7 +1,10 @@
-/**********************************************
- * This file is part of Webelexis
- * Copyright (c) 2017 by G. Weirich
- **********************************************/
+/************************************************************
+ * This file is part of Webelexis(tm)
+ * Copyright (c) 2018 by G. Weirich
+ * 
+ * Webelexis is licensed under the terms of the included
+ * LICENSE file.
+ *************************************************************/
 
 import {FHIR_Resource} from "./fhir";
 import {computedFrom} from "aurelia-framework";
@@ -38,6 +41,9 @@ export class FHIRobject {
 
   }
 
+  /**
+   * every FHIRobject has a unique id
+   */
   @computedFrom('fhir')
   get id(){
     return this.fhir.id

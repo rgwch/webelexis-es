@@ -1,3 +1,11 @@
+/************************************************************
+ * This file is part of Webelexis(tm)
+ * Copyright (c) 2018 by G. Weirich
+ * 
+ * Webelexis is licensed under the terms of the included
+ * LICENSE file.
+ *************************************************************/
+
 import {Aurelia} from 'aurelia-framework'
 import environment from './environment';
 import {I18N} from 'aurelia-i18n';

@@ -1,7 +1,11 @@
-/**
+/************************************************************
  * This file is part of Webelexis(tm)
  * Copyright (c) 2018 by G. Weirich
- */
+ * 
+ * Webelexis is licensed under the terms of the included
+ * LICENSE file.
+ *************************************************************/
+
 import {ItemList,ItemListDef,SELECTED} from '../../components/itemlist'
 import { autoinject } from 'aurelia-framework';
 import { PatientFactory, Patient } from '../../models/patient';

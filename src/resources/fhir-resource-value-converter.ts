@@ -1,8 +1,10 @@
-/*********************************
- * This file is part of Webelexis
- * Copyright (c) 2017-2018 by G. Weirich
- **********************************/
-
+/************************************************************
+ * This file is part of Webelexis(tm)
+ * Copyright (c) 2018 by G. Weirich
+ * 
+ * Webelexis is licensed under the terms of the included
+ * LICENSE file.
+ *************************************************************/
 import {FHIR_Resource} from "../models/fhir";
 
 export class FhirResourceValueConverter {

@@ -1,3 +1,12 @@
+/************************************************************
+ * This file is part of Webelexis(tm)
+ * Copyright (c) 2018 by G. Weirich
+ * 
+ * Webelexis is licensed under the terms of the included
+ * LICENSE file.
+ *************************************************************/
+
+ // change this for different color themes
 $primary-color: #64b5f6;
 $accent-color: #2979ff;
 
@@ -15,6 +24,7 @@ h3{
     font-size: 1.2rem;
 }
 
+// A inline element to display some clickable sub-elements
 .buttonbar{
   background-color: lighten($color:$primary-color, $amount: 20);
   color: $accent-color;
@@ -29,7 +39,7 @@ h3{
   }
 }
 
-
+// A frame and background element for a given class of informations
 .tableau{
     padding: 5px;
     margin: 5px;

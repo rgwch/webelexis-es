@@ -1,7 +1,10 @@
-/*********************************
- * This file is part of Webelexis
- * Copyright (c) 2017 by G. Weirich
- **********************************/
+/************************************************************
+ * This file is part of Webelexis(tm)
+ * Copyright (c) 2018 by G. Weirich
+ * 
+ * Webelexis is licensed under the terms of the included
+ * LICENSE file.
+ *************************************************************/
 
 // see https://www.hl7.org/fhir/
 
@@ -61,7 +64,7 @@ export interface FHIR_ResourceEntry {
   resource: FHIR_Resource
 }
 export interface FhirBundle {
-  resourceType: string    // must be "Bundle"
+  resourceType: "Bundle"    // must be "Bundle"
   id: id
   type: string          // "searchset"
   total: number
