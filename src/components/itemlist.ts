@@ -60,6 +60,8 @@ export class ItemList{
     }
     this.fhir.filter(this.definition.factory,this.definition.query(s)).then(values=>{
       this.values=this.doSort(values)
+    }).catch(err=>{
+      alert(JSON.stringify(err))
     })
   }
 
