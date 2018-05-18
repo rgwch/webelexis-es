@@ -14,5 +14,5 @@ elif docker ps -a|grep elexis-server;
 then
   docker start -ia elexis-server
 else 
-  docker run -e DEMO_MODE='true' -e TZ=Europe/Zurich -p 8380:8380 -p 8480:8480 -p 7234:7234 --name elexis-server medevit/elexis-server
+  docker run -e DEMO_MODE='true' -e TZ=Europe/Zurich -e DISABLE_WEB_SECURITY='true' -p 8380:8380 -p 8480:8480 -p 7234:7234 --name elexis-server medevit/elexis-server
 fi
