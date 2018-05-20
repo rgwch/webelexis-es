@@ -13,7 +13,7 @@
       click.delegate="sort(fld.field)"> [${fld.name}] </span>
   </div>
   <ul class="list-group">
-    <li class="list-group-item" click.delegate="clicked(value)" repeat.for="value of values">
+    <li class="list-group-item" click.delegate="clicked(value)" style="cursor:pointer;" repeat.for="value of values">
       ${definition.label(value)}
     </li>
   </ul>
