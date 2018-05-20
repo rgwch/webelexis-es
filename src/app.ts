@@ -1,3 +1,11 @@
+/************************************************************
+ * This file is part of Webelexis(tm)
+ * Copyright (c) 2018 by G. Weirich
+ * 
+ * Sourcecode is licensed under the terms of the included
+ * LICENSE file.
+ *************************************************************/
+
 import { Router, RouterConfiguration, Redirect, Next, NavigationInstruction } from 'aurelia-router'
 import { Session, User } from './services/session'
 import 'bootstrap'

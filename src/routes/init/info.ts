@@ -1,3 +1,11 @@
+/************************************************************
+ * This file is part of Webelexis(tm)
+ * Copyright (c) 2018 by G. Weirich
+ * 
+ * Webelexis is licensed under the terms of the included
+ * LICENSE file.
+ *************************************************************/
+
 import {Config,AppData} from '../../config'
 import { autoinject } from 'aurelia-framework';
 import {FhirService} from '../../services/fhirservice'
@@ -5,6 +13,7 @@ import {FhirService} from '../../services/fhirservice'
 @autoinject
 export class Info{
     private server={}
+    private open=-1
     constructor(private cfg:Config,private fs:FhirService){}
 
     activate(){
@@ -14,4 +23,14 @@ export class Info{
             this.server=meta; 
         })
        }
+
+    show(index){
+      this.open=index;
+    
+    }   
+
+    detail(res){
+      let ret= JSON.stringify(res,null,2)
+      return ret;
+    }
 }

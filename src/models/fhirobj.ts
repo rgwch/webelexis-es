@@ -1,16 +1,19 @@
-/**********************************************
- * This file is part of Webelexis
- * Copyright (c) 2017 by G. Weirich
- **********************************************/
+/************************************************************
+ * This file is part of Webelexis(tm)
+ * Copyright (c) 2018 by G. Weirich
+ * 
+ * Webelexis is licensed under the terms of the included
+ * LICENSE file.
+ *************************************************************/
 
-import {FHIR_Resource} from "./fhir";
-import {computedFrom} from "aurelia-framework";
-import {I18N} from 'aurelia-i18n'
+import { FHIR_Resource } from "./fhir";
+import { computedFrom } from "aurelia-framework";
+import { I18N } from 'aurelia-i18n'
 import * as moment from 'moment'
-import {FhirResourceValueConverter} from '../resources/fhir-resource-value-converter'
-import {Container} from "aurelia-framework";
-import {FHIR_Narrative} from "./fhir";
-import {FhirService} from "../services/fhirservice"
+import { FhirResourceValueConverter } from '../resources/fhir-resource-value-converter'
+import { Container } from "aurelia-framework";
+import { FHIR_Narrative } from "./fhir";
+import { FhirService } from "../services/fhirservice"
 
 export interface FhirObjectFactory {
   entities: Array<string>
@@ -27,7 +30,7 @@ export class FHIRobject {
   public stored: number = 0
   private static converter = Container.instance.get(FhirResourceValueConverter)
   protected static i18 = Container.instance.get(I18N)
-  protected fhirService=Container.instance.get(FhirService)
+  protected fhirService = Container.instance.get(FhirService)
 
   constructor(data, expectedType: string) {
     if (data.resourceType !== expectedType) {
@@ -38,20 +41,23 @@ export class FHIRobject {
 
   }
 
+  /**
+   * every FHIRobject has a unique id
+   */
   @computedFrom('fhir')
-  get id(){
+  get id() {
     return this.fhir.id
   }
 
-  getUnique(prefix:string){
-    return prefix+this.fhir.id
+  getUnique(prefix: string): string {
+    return prefix + this.fhir.id
   }
   /**
    * Convert a FHIR date  to a local date string
    * @param date FHIR conformant date string (union of xs:date, xs:gYearMonth, xs:gYear)
    * @returns {string} a date string for the current locale. e.g. "22.3.2016"
    */
-  public static dateToLocal(date: string) {
+  public static dateToLocal(date: string): string {
     return date ? moment(date).format(FHIRobject.i18.tr('adapters.date_format')) : "?"
   }
 
@@ -60,7 +66,7 @@ export class FHIRobject {
    * @param localdate a date, such as 22.3.2016
    * @returns {string} the FHIR-conformant representation
    */
-  public static dateToStandard(localdate: string) {
+  public static dateToStandard(localdate: string): string {
     return localdate ? moment(localdate).format() : moment(new Date()).format()
   }
 
@@ -69,7 +75,7 @@ export class FHIRobject {
    * @param datetime a FHIR conformant dateTime (union of xs:dateTime, xs:date, xs:gYearMonth, xs:gYear)
    * @returns {string} a datetime string for tge current locale (e,g, "22.3.2016, 10:15"
    */
-  public static dateTimeToLocal(datetime: string) {
+  public static dateTimeToLocal(datetime: string): string {
     return datetime ? moment(datetime).format(FHIRobject.i18.tr('adapters.datetime_format')) : "?"
   }
 
@@ -78,7 +84,7 @@ export class FHIRobject {
    * @param localdatetime a local date/time
    * @returns {string} a FHIR dateTime
    */
-  public static dateTimeToStandard(localdatetime: string) {
+  public static dateTimeToStandard(localdatetime: string): string {
     return localdatetime ? moment(localdatetime).format() : moment(new Date()).format()
   }
 
@@ -87,7 +93,7 @@ export class FHIRobject {
    * @param fieldname path/name of a field that contains a date in FHIR format e.g. some.where.date
    * @returns {string} the contents of the field as a localized date string
    */
-  public getDateField(fieldname: string) {
+  public getDateField(fieldname: string): string {
     return FHIRobject.dateToLocal(this.getField(fieldname))
   }
 
@@ -100,7 +106,7 @@ export class FHIRobject {
     this.setField(fieldname, FHIRobject.dateToStandard(value))
   }
 
-  public getTimeField(fieldname: string) {
+  public getTimeField(fieldname: string): string {
     let tm = FHIRobject.converter.toView("", fieldname, this.fhir)
     if (tm) {
       return moment(tm).format("HH:mm")
@@ -115,7 +121,7 @@ export class FHIRobject {
    * @param fieldname path/name of a field that contains a date in FHIR format e.g. some.where.datetime
    * @returns {string} the contents of the field as a localized date/time string
    */
-  public getDateTimeField(fieldname: string) {
+  public getDateTimeField(fieldname: string): string {
     return FHIRobject.dateTimeToLocal(this.getField(fieldname))
   }
 
@@ -153,7 +159,7 @@ export class FHIRobject {
   public addNarrative(text: string) {
     let narrative: FHIR_Narrative = <FHIR_Narrative>{
       status: "additional",
-      div   : text
+      div: text
     }
     this.fhir.text = narrative
   }

@@ -1,3 +1,10 @@
+/************************************************************
+ * This file is part of Webelexis(tm)
+ * Copyright (c) 2018 by G. Weirich
+ * 
+ * Webelexis is licensed under the terms of the included
+ * LICENSE file.
+ *************************************************************/
 import { autoinject, noView } from 'aurelia-framework'
 import { FhirService } from '../../services/fhirservice'
 import { Session,User } from '../../services/session'

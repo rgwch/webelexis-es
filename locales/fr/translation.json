@@ -1,0 +1,20 @@
+{
+  "global":{
+      "ok":"continuer",
+      "cancel": "annuler"
+    },
+  "init":{
+      "enterserverurl": "Indiquez l'adresse du serveur, svp"
+    },
+    "adapters": {
+        "datetime_format": "DD.MM.YYYY, HH:mm",
+        "date_format": "DD.MM.YYYY",
+        "time_format": "HH:mm"
+      },
+      "patients":{
+          "firstname": "prénom",
+          "lastname": "nom",
+          "birthdate": "date de naissance",
+          "placeholder": "nom ou prénom"
+      }
+}

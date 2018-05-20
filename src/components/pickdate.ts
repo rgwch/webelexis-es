@@ -1,7 +1,10 @@
-/*
+/************************************************************
  * This file is part of Webelexis(tm)
- * Copyright (c) 2017-2018 by G. Weirich
- */
+ * Copyright (c) 2018 by G. Weirich
+ * 
+ * Webelexis is licensed under the terms of the included
+ * LICENSE file.
+ *************************************************************/
 
 import {customElement} from 'aurelia-framework'
 import {EventAggregator} from 'aurelia-event-aggregator'
@@ -12,7 +15,7 @@ import {inject, bindable} from 'aurelia-framework'
 import {I18N} from 'aurelia-i18n'
 
 /**
- * Turn pikdate (https://github.com/dbushell/Pikaday) in an Aurelia Component.
+ * Turn pikaday (https://github.com/dbushell/Pikaday) in an Aurelia Component.
  * Publishes a 'datepicker' event on the Aurelia EventAggregator on date changes.
  */
 @customElement('pickdate')

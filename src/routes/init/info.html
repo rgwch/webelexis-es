@@ -5,8 +5,14 @@
     <hr />
     <h3>Unterstützte Datentypen</h3>
     <ul class="list-group">
-        <li class="list-group-item" repeat.for="res of server.rest[0].resource">
-            <p>${res.type}</p>
+        <li class="list-group-item" click.delegate="show($index)" repeat.for="res of server.rest[0].resource">
+            <p style="cursor:pointer;">${res.type}</p>
+            <div show.bind="open==$index">
+              <pre>
+              ${detail(res)}
+              </pre>
+            </div>
+
         </li>
     </ul>
 </template>
