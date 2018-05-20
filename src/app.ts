@@ -67,7 +67,7 @@ class AuthorizeStep {
 
       }
     } else {
-      console.log("no authentication needed")
+      // console.log("no authentication needed")
       return next()
 
     }

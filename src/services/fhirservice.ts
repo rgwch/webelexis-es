@@ -52,12 +52,17 @@ export class FhirService {
 
   public getSmartclient(): Promise<any> {
     return new Promise((resolve, reject) => {
+    //this.smart=FHIR.client;
+    //resolve(this.smart)
+    
       FHIR.oauth2.ready(smart => {
         this.smart = smart;
         resolve(smart);
-      });
+      },err=>{
+        reject(err);
+      })
+      
     })
-
   }
 
   public async filter(factory: FhirObjectFactory, query): Promise<Array<FHIRobject>> {

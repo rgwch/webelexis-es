@@ -8,9 +8,12 @@ import { Router } from 'aurelia-router';
 export class Ready {
   private loggedin = "no";
 
-  constructor(private fhir: FhirService, private session:Session, private router:Router ) { }
+  constructor(private fhir: FhirService, private session:Session, private router:Router ) { 
+    console.log("auth/ready consttructed")
+  }
 
   async activate(): Promise<any> {
+    console.log("auth activated")
     try {
       let result = await this.fhir.getSmartclient();
       this.session.login(new User("Testuser",["user"]),result)

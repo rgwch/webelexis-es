@@ -4,7 +4,7 @@
 
 * Git
 * Docker
-* NodeJS
+* NodeJS >8.0
 
 ## Installation:
 
