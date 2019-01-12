@@ -1,5 +1,10 @@
 # Webelexis for Elexis-Server 
 
+# DEPRECATED
+
+This project is integrated in [Webelexis](https://github.com/rgwch/webelexis) now and will be removed soon.
+
+
 ### Quick start
 
 ### Prerequisites
